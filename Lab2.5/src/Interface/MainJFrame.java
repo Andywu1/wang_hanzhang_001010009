@@ -27,6 +27,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         vsh = new VitalSignHistory();
+        maxTextField.setText((defaultMax+""));
+        minTextField.setText((defaultMin+""));
     }
 
     /**
@@ -43,7 +45,11 @@ public class MainJFrame extends javax.swing.JFrame {
         controlJpanel = new javax.swing.JPanel();
         createBtn = new javax.swing.JButton();
         viewBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        abnormalBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        maxTextField = new javax.swing.JTextField();
+        minTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -56,11 +62,11 @@ public class MainJFrame extends javax.swing.JFrame {
         displayJPanel.setLayout(displayJPanelLayout);
         displayJPanelLayout.setHorizontalGroup(
             displayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGap(0, 1035, Short.MAX_VALUE)
         );
         displayJPanelLayout.setVerticalGroup(
             displayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
+            .addGap(0, 796, Short.MAX_VALUE)
         );
 
         splitPanel.setRightComponent(displayJPanel);
@@ -84,10 +90,26 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        abnormalBtn.setText("Abnormal");
+        abnormalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                abnormalBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("MAX_BP");
+
+        jLabel2.setText("MIN_BP");
+
+        maxTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxTextFieldActionPerformed(evt);
+            }
+        });
+
+        minTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minTextFieldActionPerformed(evt);
             }
         });
 
@@ -96,15 +118,29 @@ public class MainJFrame extends javax.swing.JFrame {
         controlJpanelLayout.setHorizontalGroup(
             controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlJpanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlJpanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(31, 31, 31))
+                .addGroup(controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlJpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(abnormalBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(controlJpanelLayout.createSequentialGroup()
+                        .addGroup(controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(controlJpanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(viewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(controlJpanelLayout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel1))
+                            .addGroup(controlJpanelLayout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addGroup(controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(maxTextField)
+                                        .addComponent(minTextField)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         controlJpanelLayout.setVerticalGroup(
             controlJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,9 +149,17 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(createBtn)
                 .addGap(27, 27, 27)
                 .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167)
-                .addComponent(jButton1)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(6, 6, 6)
+                .addComponent(maxTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(minTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(abnormalBtn)
+                .addContainerGap(568, Short.MAX_VALUE))
         );
 
         splitPanel.setLeftComponent(controlJpanel);
@@ -137,9 +181,25 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPanel.setRightComponent(createPanel);
     }//GEN-LAST:event_createBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void abnormalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abnormalBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        maxTextField.setText((maxTextField.getText()+""));
+        minTextField.setText((minTextField.getText()+""));
+        vsh.setMax(Double.parseDouble(maxTextField.getText()));
+        vsh.setMin(Double.parseDouble(minTextField.getText()));
+        
+        AbnormalJPanel abnormalJPanel = new AbnormalJPanel(vsh);
+        splitPanel.setRightComponent(abnormalJPanel);
+        
+    }//GEN-LAST:event_abnormalBtnActionPerformed
+
+    private void maxTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maxTextFieldActionPerformed
+
+    private void minTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_minTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,10 +240,14 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton abnormalBtn;
     private javax.swing.JPanel controlJpanel;
     private javax.swing.JButton createBtn;
     private javax.swing.JPanel displayJPanel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField maxTextField;
+    private javax.swing.JTextField minTextField;
     private javax.swing.JSplitPane splitPanel;
     private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables

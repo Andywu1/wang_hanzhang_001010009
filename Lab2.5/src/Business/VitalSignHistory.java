@@ -14,6 +14,30 @@ import java.util.ArrayList;
 public class VitalSignHistory {
 
     private ArrayList<VitalSigns> vitalSignHistory;
+    private double max;
+    private double min;
+
+    public VitalSignHistory(double max, double min) {
+        this.max = max;
+        this.min = min;
+    }
+    
+    public double getMax() {
+        return max;
+    }
+
+    public void setMax(double max) {
+        this.max = max;
+    }
+
+    public double getMin() {
+        return min;
+    }
+
+    public void setMin(double min) {
+        this.min = min;
+    }
+    
 
     public VitalSignHistory() {
         this.vitalSignHistory = new ArrayList<VitalSigns>();
