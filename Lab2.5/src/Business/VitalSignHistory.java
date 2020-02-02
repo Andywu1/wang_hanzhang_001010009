@@ -17,10 +17,10 @@ public class VitalSignHistory {
     private double max;
     private double min;
 
-    public VitalSignHistory(double max, double min) {
-        this.max = max;
-        this.min = min;
-    }
+//    public VitalSignHistory(double max, double min) {
+//        this.max = max;
+//        this.min = min;
+//    }
     
     public double getMax() {
         return max;

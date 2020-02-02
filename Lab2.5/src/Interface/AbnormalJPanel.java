@@ -332,6 +332,8 @@ public class AbnormalJPanel extends javax.swing.JPanel {
         vs.setDate(dateTextField.getText());
         vs.setBloodPressure(Double.parseDouble(bloodTextField.getText()));
         vs.setPulse(Integer.parseInt(pulseTextField.getText()));
+        JOptionPane.showMessageDialog(null, "Data updated successfully!");
+        setAllEnabled(false);
     }//GEN-LAST:event_confirmButtonActionPerformed
 
 
