@@ -21,8 +21,9 @@ public class VitalSigns {
         this.bloodPressure = bloodPressure;
         this.pulse = pulse;
         this.date = date;
+        
     }
-
+    
     public VitalSigns() {
     }
 
